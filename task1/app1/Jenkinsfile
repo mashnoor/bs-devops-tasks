@@ -8,13 +8,7 @@ node {
 
     stage('Build image') {
   
-       steps {
-                dir('task1/app1/build/Dockerfile'){
-                    script{
-                        app = docker.build("mashnoor/bc-app1")
-                    }
-                }
-            }
+       app = docker.build("mashnoor/doraemon", "./task1/app1/build/Dockerfile")
     }
 
     stage('Push image') {
