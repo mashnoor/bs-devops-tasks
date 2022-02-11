@@ -8,14 +8,15 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("mashnoor/doraemon", "-f ./task1/app1/build/Dockerfile .")
+       app = docker.build("mashnoor/doraemon", "-f ./task1/app1/build/Dockerfile ./task1/app1")
     }
 
     stage('Push image') {
         
-        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
+        app.push("${env.BUILD_NUMBER}")
+        app.push("latest")
+        // docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            
+        // }
     }
 }
