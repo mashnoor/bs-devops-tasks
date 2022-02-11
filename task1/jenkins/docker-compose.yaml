@@ -1,17 +1,51 @@
+version: "3.8"
 
-version: '2'
 
 services:
-  jenkins:
-    image: docker.io/bitnami/jenkins:latest
-    ports:
-      - '8090:8080'
+  jenkins_server:
+    build:
+      context: .
+    networks:
+      - jenkins
+    container_name: JenkinsServer
+    restart: always
     environment:
-      - JENKINS_USERNAME=admin
-      - JENKINS_PASSWORD=password
+      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_CERT_PATH=/certs/client
+      - DOCKER_TLS_VERIFY=1
+    ports:
+    - "8090:8080"
+    - "50000:50000"
     volumes:
-      - 'jenkins_data:/bitnami/jenkins'
+    - jenkins-docker-certs:/certs/client
+    - jenkins-home:/var/jenkins_home
+    - jenkins-docker-certs:/extras
+
+  jenkins_docker:
+    image: docker:dind
+    networks:
+      jenkins:
+        aliases:
+          - docker
+    container_name: JenkinsDocker
+    privileged: true
+    environment:
+    - DOCKER_TLS_CERTDIR=/certs
+    ports:
+    - "2376:2376"
+    volumes:
+    - jenkins-docker-certs:/certs/client
+    - jenkins-home:/var/jenkins_home
+    - jenkins-docker-certs:/extras
+
 
 volumes:
-  jenkins_data:
-    driver: local
+  jenkins-home:
+  jenkis-extras:
+  jenkins-docker-certs:
+
+
+
+networks:
+  jenkins:
+    driver: bridge
