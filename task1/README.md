@@ -35,3 +35,11 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 minikube start --nodes 3 -p bs-cluster
 ```
 
+
+##### Taint the nodes
+
+```bash
+kubectl taint nodes bs-cluster node=master:NoSchedule
+kubectl taint nodes bs-cluster-m02 app-name=bs-app1:NoSchedule
+kubectl taint nodes bs-cluster-m03 app-name=bs-app2:NoSchedule
+```

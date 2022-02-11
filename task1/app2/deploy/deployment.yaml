@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bs-app2
+  namespace: default
+spec:
+  
+  selector:
+    matchLabels:
+      app: bs-app2
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: bs-app2
+    spec:
+      tolerations:
+      - key: "app-name"
+        operator: "Equal"
+        value: "bs-app2"
+        effect: "NoSchedule"
+      containers:
+      - name: bs-app2
+        image: mashnoor/bs-app2:latest
+        # env:
+        # - name: DB_HOST
+        #   value: private-evident-prod-postgres-do-user-9563394-0.b.db.ondigitalocean.com
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+
+        
+     

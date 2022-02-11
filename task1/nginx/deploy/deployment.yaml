@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: default
+  labels:
+    app: nginx
+
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+
+  template:
+    metadata:
+      labels:
+        app: nginx
+
+
+    spec:
+     
+      tolerations:
+      - key: "app-name"
+        operator: "Equal"
+        value: "bs-app1"
+        effect: "NoSchedule"
+   
+      containers:
+      - name: nginx-app
+        image: nginx:stable-alpine
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: "1m"
+            memory: "100Mi"
+          limits:
+            cpu: "4000m"
+            memory: "4096Mi"
+
+        ports:
+        - containerPort: 8080
+        # command: ["tail", "-f", "/dev/null"]
+
+        volumeMounts:
+        - mountPath: /etc/nginx/conf.d/default.conf
+          name: nginx-config
+          subPath: default
+
+        env:
+        - name: APP_DEPLOYMENT_COUNTER
+          value: "9"
+
+        # readinessProbe:
+        #   httpGet:
+        #     path: /ft/health/
+        #     port: 8080
+        #   initialDelaySeconds: 30
+        #   periodSeconds: 30
+
+        # livenessProbe:
+        #   httpGet:
+        #     path: /ft/health/
+        #     port: 8080
+        #   initialDelaySeconds: 60
+        #   periodSeconds: 60
+
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx
