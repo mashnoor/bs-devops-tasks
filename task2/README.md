@@ -27,5 +27,5 @@ vagrant up
 ##### Deploy Kubernetes Metrics Server
 ```bash
 vagrant ssh master
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl apply -f https://raw.githubusercontent.com/mashnoor/bs-devops-tasks/master/task2/deploy/metric-server.yaml
 ```
