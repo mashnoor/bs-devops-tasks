@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bs-app1
-  namespace: default
+  namespace: bs-apps
 spec:
   
   selector:

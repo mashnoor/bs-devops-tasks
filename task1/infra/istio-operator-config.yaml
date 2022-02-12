@@ -1,0 +1,32 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  components:
+    pilot:
+      k8s:
+        tolerations:
+        - key: "app-name"
+          operator: "Equal"
+          value: "bs-app1"
+          effect: "NoSchedule"
+    egressGateways:
+    - name: istio-egressgateway
+      enabled: true
+      k8s:
+        tolerations:
+        - key: "app-name"
+          operator: "Equal"
+          value: "bs-app1"
+          effect: "NoSchedule"
+    ingressGateways:
+    - name: istio-ingressgateway
+      enabled: true
+      k8s:
+        tolerations:
+        - key: "app-name"
+          operator: "Equal"
+          value: "bs-app1"
+          effect: "NoSchedule"
+
+      
+        
