@@ -40,6 +40,30 @@ kubectl taint nodes bs-cluster-m03 app-name=bs-app2:NoSchedule
 ```
 
 
+##### Setup service mesh
+
+```bash
+link
+```
+
+##### Create namespace and inject istio
+
+```bash
+kubectl apply -f task1/infra/namespaces.yaml
+```
+
+##### Setup nginx
+```bash
+link
+```
+
+
+##### Setup jenkins
+
+```bash
+link
+```
+
 
 
 ##### Build applications with jenkins
