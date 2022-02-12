@@ -12,10 +12,6 @@ https://www.virtualbox.org/wiki/Downloads
 https://www.vagrantup.com/downloads
 ```
 
-##### Install Vagrant SCP Plugin
-```bash
-vagrant plugin install vagrant-scp
-```
 
 ##### Spin up Vagrant Cluster
 ```bash
@@ -24,8 +20,9 @@ vagrant up
 ```
 
 
-##### Deploy Kubernetes Metrics Server
+##### Deploy Kubernetes Metrics Server and Dashboard
 ```bash
 vagrant ssh master
 kubectl apply -f https://raw.githubusercontent.com/mashnoor/bs-devops-tasks/master/task2/deploy/metric-server.yaml
+kubectl apply -f https://raw.githubusercontent.com/mashnoor/bs-devops-tasks/master/task2/deploy/kubernetes-dashboard.yaml
 ```
