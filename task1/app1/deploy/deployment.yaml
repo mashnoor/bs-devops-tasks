@@ -27,9 +27,6 @@ spec:
       containers:
       - name: bs-app1
         image: mashnoor/bs-app1:latest
-        # env:
-        # - name: DB_HOST
-        #   value: private-evident-prod-postgres-do-user-9563394-0.b.db.ondigitalocean.com
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
