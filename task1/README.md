@@ -5,14 +5,7 @@
 
 
 ```bash
-sudo apt-get update
-sudo apt-get install ca-certificates curl gnupg lsb-release
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-echo \
-"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+https://docs.docker.com/get-docker/
 ```
 
 
@@ -22,11 +15,15 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 
 ```bash
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
+https://minikube.sigs.k8s.io/docs/start/
 ```
 
+##### Install Kubectl
 
+
+```bash
+https://kubernetes.io/docs/tasks/tools/
+```
 
 
 ##### Start 3 node minikube cluster
@@ -42,4 +39,12 @@ minikube start --nodes 3 -p bs-cluster
 kubectl taint nodes bs-cluster node=master:NoSchedule
 kubectl taint nodes bs-cluster-m02 app-name=bs-app1:NoSchedule
 kubectl taint nodes bs-cluster-m03 app-name=bs-app2:NoSchedule
+```
+
+
+
+##### Deploy applications and services
+
+```bash
+kubectl apply -f task1/app1/deploy -f task1/app2/deploy
 ```

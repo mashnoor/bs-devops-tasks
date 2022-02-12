@@ -8,7 +8,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("mashnoor/bs-app1", "-f ./task1/app1/build/Dockerfile ./task1/app1")
+       app = docker.build("mashnoor/bs-app2", "-f ./task1/app2/build/Dockerfile ./task1/app2")
     }
 
     stage('Push image') {
