@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: bs-app2
+  namespace: bs-apps
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: bs-app2
+  minReplicas: 1
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 90

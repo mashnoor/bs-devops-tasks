@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: bs-app1
+  namespace: bs-apps
+
+spec:
+  host: bs-app1
+  trafficPolicy:   
+    loadBalancer:
+      simple: LEAST_CONN
+
+    tls:
+      mode: ISTIO_MUTUAL
+

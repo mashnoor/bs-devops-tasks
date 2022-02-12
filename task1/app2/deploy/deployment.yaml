@@ -30,6 +30,22 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - mountPath: /app/.env
+          name: bs-app2-env
+          subPath: env
+        resources:
+          requests:
+            cpu: "1m"
+            memory: "500Mi"
+          limits:
+            cpu: "500m"
+            memory: "1024Mi"
+      volumes:
+        - name: bs-app2-env
+          configMap:
+            name: bs-app2
+
 
         
      
