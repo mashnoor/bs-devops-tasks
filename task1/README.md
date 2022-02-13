@@ -42,9 +42,9 @@ kubectl taint nodes bs-cluster-m03 app-name=bs-app2:NoSchedule
 
 ##### Setup service mesh
 
-```bash
-link
-```
+
+https://github.com/mashnoor/bs-devops-tasks/blob/master/task1/infra/README.md
+
 
 ##### Create namespace and inject istio
 
@@ -52,16 +52,21 @@ link
 kubectl apply -f task1/infra/namespaces.yaml
 ```
 
-##### Setup nginx
+##### Install mesh gateway and nginx virtual service
+
 ```bash
-link
+kubectl apply -f task1/infra/gateway/ -f task1/infra/virtualservice/
 ```
+
+##### Setup nginx
+
+https://github.com/mashnoor/bs-devops-tasks/blob/master/task1/nginx/README.md
 
 
 ##### Setup jenkins
 
 ```bash
-link
+https://github.com/mashnoor/bs-devops-tasks/blob/master/task1/jenkins/README.md
 ```
 
 
@@ -72,7 +77,8 @@ link
 - New Item > (Enter name and select Multibranch Pipeline)
 - From Branch Sources, select a soucre and enter the public repository url
 - From Build Configuration, change the script path to task1/app1/Jenkinsfile 
-- Create a new build pipeline for app2. The process is identical to the above one. Chnage the script path to task1/app1/Jenkinsfile
+- Update Jenkinsfile if necessary
+- Create a new build pipeline for app2. The process is identical to the above one. Chnage the script path to task1/app2/Jenkinsfile
 - Hit save and jenkins should automatically clone the repository, build 
 
 
@@ -81,7 +87,7 @@ link
 
 
 #####  Deploy applications
-Update image tags in task1/app1/deploy/deployment.yaml and task1/app2/deploy/deployment.yaml
+Update images in task1/app1/deploy/deployment.yaml and task1/app2/deploy/deployment.yaml
 
 ```bash
 kubectl apply -f task1/app1/deploy -f task1/app2/deploy

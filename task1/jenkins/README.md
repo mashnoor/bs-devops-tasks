@@ -23,7 +23,7 @@ Visit http://[ip]:8090
 - Go to Jenkins credentials store
 - Go to Global credentials
 - Hit Add Credentials
-- Add your docker hub username, password and set ID=dockerhub
+- Add your dockerhub username, password and set ID=dockerhub
 - Hit ok and done
 
 ##### Set Docker plugin
