@@ -3,25 +3,21 @@
 
 ##### Install Docker
 
-
-```bash
 https://docs.docker.com/get-docker/
-```
+
 
 
 ##### Install Minikube
 
-
-```bash
 https://minikube.sigs.k8s.io/docs/start/
-```
+
 
 ##### Install Kubectl
 
 
-```bash
+
 https://kubernetes.io/docs/tasks/tools/
-```
+
 
 
 ##### Start 3 node minikube cluster
@@ -65,10 +61,8 @@ https://github.com/mashnoor/bs-devops-tasks/blob/master/task1/nginx/README.md
 
 ##### Setup jenkins
 
-```bash
-https://github.com/mashnoor/bs-devops-tasks/blob/master/task1/jenkins/README.md
-```
 
+https://github.com/mashnoor/bs-devops-tasks/blob/master/task1/jenkins/README.md
 
 
 ##### Build applications with jenkins
