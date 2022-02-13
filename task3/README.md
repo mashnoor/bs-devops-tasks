@@ -1,4 +1,4 @@
-# FoodBuzz - A online food devlivery solution
+# FoodBuzz - A online food delivery solution
 
 
 
