@@ -12,8 +12,13 @@ https://www.virtualbox.org/wiki/Downloads
 https://www.vagrantup.com/downloads
 ```
 
+##### Install Ansible
+```bash
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+```
 
-##### Spin up Vagrant Cluster
+
+##### Spin up Vagrant and 3 node Kubernetes Cluster
 ```bash
 cd cluster
 vagrant up
